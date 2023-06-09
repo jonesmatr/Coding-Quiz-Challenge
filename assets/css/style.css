@@ -2,3 +2,13 @@
 /*Add styling to the View High Score and timer so they are in the corners*/
 /*Add styling to <div> so that it is centered on the screen. The button should transform based on hover, focus, and click*/
 /* Path: assets\css\style.css */
+
+/*Remove border around card body in intro section*/
+.card {
+    border: none;
+    flex-direction: row;
+}
+
+.card-body {
+    flex: 75%;
+}

@@ -11,12 +11,24 @@
 <body>
     <header>
        <!--Add "View High Scores" to the top left of header and a timer in the top right--> 
+       <ul class="nav nav-fill">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">View High Scores</a>
+        </li>
+        <li class="nav-item timer">
+          <a class="nav-link" href="#">Time:</a>
+        </li>                
+      </ul>
     </header>
-    <section class="intro">
-    <!--Add a <div> with a header saying "Coding Quiz Challenge" and a <p> that says 
-        "Try to answer the following code-related question within the time limit. Keep in 
-        mind that incorrect answers will penalize your score/time by ten seconds!", 
-        then below that add a button that says Start Quiz.-->
+    <section class="min-vh-100 intro d-flex align-items-center">    
+        <div class="row w-100 justify-content-center card text-center">
+            <div class="col-12 col-md-6">
+              <h1 class="card-title">Coding Quiz Challenge</h1>
+              <p class="card-text">Try to answer the following code-related question within the time limit. Keep in 
+                mind that incorrect answers will penalize your score/time by ten seconds!</p>
+              <a href="#" class="btn btn-primary">Start Quiz</a>
+            </div>
+          </div>
     </section>
     <section class="questions">
         <!--This is where you add the questions. These will probably be separate sections with a unique #id. When you
