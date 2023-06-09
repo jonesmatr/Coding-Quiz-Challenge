@@ -37,7 +37,7 @@ var nextButton = document.getElementById("nextButton");
 var cardTitle = document.querySelector(".card-title");
 var cardText = document.querySelector(".card-text");
 var timerElement = document.getElementById("timer");
-var timeLeft = 300;
+var timeLeft = 60;
 
 
 
@@ -68,7 +68,7 @@ function startTimer() {
   
       if (timeLeft <= 0) {
         clearInterval(timerInterval);
-        endQuiz();
+        endGame();
       }
     }, 1000);
   }
@@ -114,7 +114,12 @@ function checkAnswer(event) {
   } else {
     resultElement.textContent = "Incorrect!";
     resultElement.style.color = "red";
+    deductTime(10);
   }
+
+  function deductTime(seconds) {
+    timeLeft -= seconds;
+    }
 
   // Disable all choices to prevent multiple selections
   var choices = document.querySelectorAll("#choices li");
