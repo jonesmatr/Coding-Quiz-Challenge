@@ -104,6 +104,8 @@ function loadQuestion() {
  
 }
 
+var score = 0;
+
 function checkAnswer(event) {
   var selectedChoice = event.target;
   var question = questions[currentQuestion];
@@ -111,15 +113,26 @@ function checkAnswer(event) {
   if (selectedChoice.textContent === question.choices[question.answer]) {
     resultElement.textContent = "Correct!";
     resultElement.style.color = "green";
+    increaseScore(10)
+    saveScoretoLocalStorage();
   } else {
     resultElement.textContent = "Incorrect!";
     resultElement.style.color = "red";
     deductTime(10);
   }
 
+  function increaseScore(points) {
+    score += points;
+    }
+
+  function saveScoretoLocalStorage() {
+    localStorage.setItem("score", score);
+    }
+  
   function deductTime(seconds) {
     timeLeft -= seconds;
     }
+
 
   // Disable all choices to prevent multiple selections
   var choices = document.querySelectorAll("#choices li");
@@ -148,6 +161,8 @@ function loadNextQuestion() {
     endGame();
   }
 }
+
+
 
 function endGame() {
   questionContainer.style.display = "none";
