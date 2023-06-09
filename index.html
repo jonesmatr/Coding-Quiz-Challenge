@@ -22,27 +22,41 @@
         </li>                
       </ul>
     </header>
-    <section class="min-vh-100 intro d-flex align-items-center">    
+    <section class="min-vh-100 d-flex align-items-center">    
         <div class="row w-100 justify-content-center card text-center">
             <div class="col-12 col-md-6">
               <h1 class="card-title">Coding Quiz Challenge</h1>
               <p class="card-text">Try to answer the following code-related question within the time limit. Keep in 
                 mind that incorrect answers will penalize your score/time by ten seconds!</p>
-              <a href="#" class="btn btn-primary">Start Quiz</a> <!--When you click the button it will bring you to the questions-->
-            </div>
+              <a href="#" class="btn btn-primary" id="startButton">Start Quiz</a>
+              <div id="questionContainer" >
+                <h2 class="card-header" id="question"></h2>
+                </div class="list-group d-flex justify-content-center">
+                <ol class="list-group list-group-numbered list-group-item-action text-center pt-3" id="choices">
+                    <li class="list-group-item list-group-item-action"></li>
+                    <li class="list-group-item list-group-item-action"></li>
+                    <li class="list-group-item list-group-item-action"></li>
+                    <li class="list-group-item list-group-item-action"></li>
+                  </ol>
+              </div>
+              <!-- <div id="questionContainer" class="list-group">
+                <h2 id="question"></h2>
+                <ol id="choices"></ol>
+                <p id="result"></p>
+            </div> -->
           </div>
     </section>
     
     <section class="min-vh-100 intro d-flex align-items-center">    
-        <div class="w-100 justify-content-center card text-center">
-            <div style="width: 18rem;">
-                <div class="card-header">
-                  Question
+        <div class="row w-100 justify-content-center text-center">
+            <div id="questionContainer" class="col-12 col-md-6">
+                <h2 class="card-header" id="question"></h2>
                 </div class="list-group">
-                <ol class="list-group list-group-numbered list-group-item-action">
-                    <li class="list-group-item list-group-item-action">A list item</li>
-                    <li class="list-group-item list-group-item-action">A list item</li>
-                    <li class="list-group-item list-group-item-action">A list item</li>
+                <ol class="list-group list-group-numbered list-group-item-action text-center id="choices">
+                    <li class="list-group-item list-group-item-action"></li>
+                    <li class="list-group-item list-group-item-action"></li>
+                    <li class="list-group-item list-group-item-action"></li>
+                    <li class="list-group-item list-group-item-action"></li>
                   </ol>
               </div>
           </div>
