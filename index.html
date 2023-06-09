@@ -21,13 +21,15 @@
         </li>                
       </ul>
     </header>
-    <section class="min-vh-100 d-flex align-items-center">    
+    <section class="min-vh-100 d-flex align-items-center"> 
+           
         <div class="row w-100 justify-content-center card text-center">
             <div class="col-12 col-md-6">
               <h1 class="card-title">Coding Quiz Challenge</h1>
               <p class="card-text">Try to answer the following code-related question within the time limit. Keep in 
                 mind that incorrect answers will penalize your score/time by ten seconds!</p>
               <a href="#" class="btn btn-primary" id="startButton">Start Quiz</a>
+
               <div id="questionContainer">
                 <h2 class="card-header" id="question"></h2>
                 </div class="list-group d-flex justify-content-center">
@@ -40,19 +42,26 @@
                   <p id="result"></p>
               </div>
           </div>
-    </section>
-    
 
+          <div id="endScreen" style="display: none;">
+            <h2>Game Over!</h2>
+            <p id="score"></p>
+            <form id="initialsForm">
+              <label for="initialsInput">Enter your initials:</label>
+              <input type="text" id="initialsInput" required>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          
+          <div id="highScoresScreen" style="display: none;">
+            <h2>High Scores</h2>
+            <ul id="highScoresList"></ul>
+            <button id="goBackButton">Go Back</button>
+            <button id="clearScoresButton">Clear High Scores</button>
+          </div>
+          
+    </section>
 
-    <section class="finished">
-        <!--This section will present the user with their quiz results. Include their score and a form field for them to add
-        their initials and a submit button. This will do something with those initials-->
-    </section>
-    <section class="highscore">
-        <!--This section will display a ranking of the highest scores. This will be an ordered list with each list item 
-        including the player's initials and their score. The js will need to be able to order the list based on the highest
-        to lowest score. Include a button to go back to the start of the quiz and a button to clear the high scores-->
-    </section>
     
 </body>
 
