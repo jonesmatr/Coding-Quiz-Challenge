@@ -36,13 +36,17 @@ var resultElement = document.getElementById("result");
 var nextButton = document.getElementById("nextButton");
 var cardTitle = document.querySelector(".card-title");
 var cardText = document.querySelector(".card-text");
+var timerElement = document.getElementById("timer");
+var timeLeft = 300;
 
 
 
 startButton.addEventListener("click", startGame);
-nextButton.addEventListener("click", loadNextQuestion);
 
 
+//Add timer function
+
+//Add points system. 1 point for correct answer, 10 seconds removed from timer for incorrect answer.
 
 function startGame() {
   startButton.style.display = "none";
@@ -50,10 +54,35 @@ function startGame() {
   cardText.style.display = "none";
   questionContainer.style.display = "block";
   choices.style.display = "block";
+  startTimer();
   loadQuestion();
+  
 }
 
 //Add function for when the user clicks an answer. Display correct or incorrect, then move to next question - might need to add delay.
+
+function startTimer() {
+    var timerInterval = setInterval(function() {
+      timeLeft--;
+      timerElement.textContent = "Time: " + formatTime(timeLeft);
+  
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        endQuiz();
+      }
+    }, 1000);
+  }
+  
+  function formatTime(seconds) {
+    var minutes = Math.floor(seconds / 60);
+    var remainingSeconds = seconds % 60;
+  
+    var formattedMinutes = (minutes < 10 ? "0" : "") + minutes;
+    var formattedSeconds = (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
+  
+    return formattedMinutes + ":" + formattedSeconds;
+  }
+
 
 function loadQuestion() {
   var question = questions[currentQuestion];
@@ -72,7 +101,7 @@ function loadQuestion() {
 
 
   resultElement.textContent = "";
-  nextButton.style.display = "none";
+ 
 }
 
 function checkAnswer(event) {
@@ -86,8 +115,6 @@ function checkAnswer(event) {
     resultElement.textContent = "Incorrect!";
     resultElement.style.color = "red";
   }
-
-//   nextButton.style.display = "block";
 
   // Disable all choices to prevent multiple selections
   var choices = document.querySelectorAll("#choices li");
@@ -123,3 +150,5 @@ function endGame() {
   resultElement.textContent = "Quiz completed!";
   nextButton.style.display = "none";
 }
+
+//Add form field for user to enter initials and save score to local storage. Rank scores in order of highest to lowest.
