@@ -9,6 +9,6 @@
     flex-direction: row;
 }
 
-.card-body {
-    flex: 75%;
-}
+li:hover {
+    cursor: pointer;
+  } 
