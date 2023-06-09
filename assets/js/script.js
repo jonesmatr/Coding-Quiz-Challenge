@@ -37,16 +37,23 @@ var nextButton = document.getElementById("nextButton");
 var cardTitle = document.querySelector(".card-title");
 var cardText = document.querySelector(".card-text");
 
+
+
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", loadNextQuestion);
+
+
 
 function startGame() {
   startButton.style.display = "none";
   cardTitle.style.display = "none";
   cardText.style.display = "none";
   questionContainer.style.display = "block";
-  loadQuestion(); 
+  choices.style.display = "block";
+  loadQuestion();
 }
+
+//Add function for when the user clicks an answer. Display correct or incorrect, then move to next question - might need to add delay.
 
 function loadQuestion() {
   var question = questions[currentQuestion];
@@ -80,8 +87,25 @@ function checkAnswer(event) {
     resultElement.style.color = "red";
   }
 
-  nextButton.style.display = "block";
+//   nextButton.style.display = "block";
+
+  // Disable all choices to prevent multiple selections
+  var choices = document.querySelectorAll("#choices li");
+  choices.forEach(function(choice) {
+    choice.removeEventListener("click", checkAnswer);
+  });
+
+  // Move to the next question after a 2-second delay
+  setTimeout(function() {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      loadQuestion();
+    } else {
+      endGame();
+    }
+  }, 2000);
 }
+
 
 function loadNextQuestion() {
   currentQuestion++;
@@ -95,6 +119,7 @@ function loadNextQuestion() {
 
 function endGame() {
   questionContainer.style.display = "none";
+  choices.style.display = "none";
   resultElement.textContent = "Quiz completed!";
   nextButton.style.display = "none";
 }
