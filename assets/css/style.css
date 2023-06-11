@@ -51,6 +51,16 @@ li:hover {
 
 .btn:hover{
   color: #fff;
-  background-color: #00ff4c;
-  border-color: #00ff4c;
+  background-color: #a5f5bd;
+  border-color: #a5f5bd;
+}
+
+ol.scores li::before {
+  content: counter(list-item) ". ";
+  counter-increment: list-item;
+  margin-right: 0.5rem;
+}
+
+ol.scores li:hover {
+  cursor: default;
 }

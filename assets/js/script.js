@@ -114,7 +114,7 @@ function loadQuestion() {
     choicesElement.appendChild(choice);
 
     choice.style.backgroundColor = "lightblue";
-    choice.style.color = "white";
+    choice.style.color = "white";    
   }
 
   resultElement.textContent = "";
@@ -227,7 +227,7 @@ function showHighScores() {
     highScoresList.innerHTML = "";
 
     var orderedList = document.createElement("ol");
-    orderedList.className = "list-group list-group-numbered col-6 mx-auto";
+    orderedList.className = "list-group col-6 mx-auto";
     highScoresList.appendChild(orderedList);
 
     highScores.sort((a,b) => b.score - a.score);
