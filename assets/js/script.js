@@ -44,9 +44,8 @@ var timeLeft = 60;
 startButton.addEventListener("click", startGame);
 
 
-//Add timer function
 
-//Add points system. 1 point for correct answer, 10 seconds removed from timer for incorrect answer.
+
 
 function startGame() {
   startButton.style.display = "none";
@@ -166,7 +165,7 @@ function loadNextQuestion() {
 
 function endGame() {
   questionContainer.style.display = "none";
-  choices.style.display = "none";
+  // choices.style.display = "none";
   resultElement.textContent = "Quiz completed!";
 
 
@@ -178,6 +177,10 @@ scoreElement.textContent = "Your score: " + score;
 
 var initialsForm = document.getElementById("initialsForm");
 initialsForm.addEventListener("submit", saveHighScore);
+
+var cardDiv = document.querySelector(".card");
+cardDiv.style.display = "none";
+
 }
 
 function saveHighScore(event) {
@@ -226,4 +229,3 @@ function clearHighScores() {
     var highScoresList = document.getElementById("highScoresList");
     highScoresList.innerHTML = "";
 }
-//Add form field for user to enter initials and save score to local storage. Rank scores in order of highest to lowest.
