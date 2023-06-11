@@ -64,7 +64,14 @@ ol.scores li:hover {
   cursor: default;
 }
 
-.submit,
-.clear {
+@media screen and (max-width: 278px) {
+ .clear {
   margin-top: 5px;
 }
+}
+
+@media screen and (max-width: 440px) {
+  .submit {
+   margin-top: 5px;
+ }
+ }
