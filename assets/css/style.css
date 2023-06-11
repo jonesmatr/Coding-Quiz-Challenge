@@ -64,6 +64,7 @@ ol.scores li:hover {
   cursor: default;
 }
 
-.submit {
+.submit,
+.clear {
   margin-top: 5px;
 }
