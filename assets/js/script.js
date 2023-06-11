@@ -30,6 +30,7 @@ var questions = [
 
 var startButton = document.getElementById("startButton");
 var questionContainer = document.getElementById("questionContainer");
+var viewHighScoresLink = document.getElementById("viewHighScoresLink");
 var questionElement = document.getElementById("question");
 var choicesElement = document.getElementById("choices");
 var resultElement = document.getElementById("result");
@@ -42,11 +43,10 @@ var timerInterval;
 
 
 
-startButton.addEventListener("click", startGame);
-
-
-
-
+function disableViewHighScoresLink() {
+  viewHighScoresLink.removeEventListener("click", showHighScoresScreen);
+  viewHighScoresLink.style.pointerEvents = "none";
+}
 
 function startGame() {
   startButton.style.display = "none";
@@ -56,8 +56,23 @@ function startGame() {
   choices.style.display = "block";
   startTimer();
   loadQuestion();
+  disableViewHighScoresLink();
   
 }
+
+startButton.addEventListener("click", startGame);
+
+function showHighScoresScreen() {
+  event.preventDefault();
+  questionContainer.style.display = "none";
+  var endScreen = document.getElementById("endScreen");
+  endScreen.style.display = "none";
+  var highScoresScreen = document.getElementById("highScoresScreen");
+  highScoresScreen.style.display = "block";
+  showHighScores();
+}
+
+
 
 //Add function for when the user clicks an answer. Display correct or incorrect, then move to next question - might need to add delay.
 
@@ -99,7 +114,6 @@ function loadQuestion() {
     choicesElement.appendChild(choice);
   }
 
-
   resultElement.textContent = "";
  
 }
@@ -133,7 +147,6 @@ function checkAnswer(event) {
     timeLeft -= seconds;
     }
 
-
   // Disable all choices to prevent multiple selections
   var choices = document.querySelectorAll("#choices li");
   choices.forEach(function(choice) {
@@ -151,7 +164,6 @@ function checkAnswer(event) {
   }, 2000);
 }
 
-
 function loadNextQuestion() {
   currentQuestion++;
 
@@ -162,13 +174,10 @@ function loadNextQuestion() {
   }
 }
 
-
-
 function endGame() {
   questionContainer.style.display = "none";
   // choices.style.display = "none";
   resultElement.textContent = "Quiz completed!";
-
 
 var endScreen = document.getElementById("endScreen");
 endScreen.style.display = "block";
@@ -219,6 +228,26 @@ function showHighScores() {
         listItem.textContent = highScores[i].initials + ": " + highScores[i].score;
         highScoresList.appendChild(listItem);
     }
+}
+
+var viewHighScoresLink = document.getElementById("viewHighScoresLink");
+viewHighScoresLink.addEventListener("click", showHighScoresScreen);
+
+function showHighScoresScreen(event) {
+  event.preventDefault();
+
+  questionContainer.style.display = "none";
+
+  var endScreen = document.getElementById("endScreen");
+  endScreen.style.display = "none";
+
+  var highScoresScreen = document.getElementById("highScoresScreen");
+  highScoresScreen.style.display = "block";
+
+  var cardDiv = document.querySelector(".card");
+  cardDiv.style.display = "none";
+
+  showHighScores();
 }
 
 var goBackButton = document.getElementById("goBackButton");
