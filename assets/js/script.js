@@ -26,7 +26,7 @@ var questions = [
     }
   ];
 
-  var currentQuestion = 0;
+var currentQuestion = 0;
 
 var startButton = document.getElementById("startButton");
 var questionContainer = document.getElementById("questionContainer");
@@ -40,8 +40,6 @@ var cardText = document.querySelector(".card-text");
 var timerElement = document.getElementById("timer");
 var timeLeft = 60;
 var timerInterval;
-
-
 
 function disableViewHighScoresLink() {
   viewHighScoresLink.removeEventListener("click", showHighScoresScreen);
@@ -71,9 +69,6 @@ function showHighScoresScreen() {
   highScoresScreen.style.display = "block";
   showHighScores();
 }
-
-
-
 //Add function for when the user clicks an answer. Display correct or incorrect, then move to next question - might need to add delay.
 
 function startTimer() {
@@ -98,7 +93,6 @@ function startTimer() {
     return formattedMinutes + ":" + formattedSeconds;
   }
 
-
 function loadQuestion() {
   var question = questions[currentQuestion];
 
@@ -114,11 +108,15 @@ function loadQuestion() {
     choicesElement.appendChild(choice);
 
     choice.style.backgroundColor = "lightblue";
-    choice.style.color = "white";    
+    choice.style.color = "white";
+    
+    choice.onclick = function() {
+      this.style.backgroundColor = "#a5f5bd";
+      this.style.color = "white";
+    }
   }
 
-  resultElement.textContent = "";
- 
+  resultElement.textContent = ""; 
 }
 
 var score = 0;
@@ -202,7 +200,7 @@ function saveHighScore(event) {
     event.preventDefault();
 
     var initialsInput = document.getElementById("initialsInput");
-    var initials = initialsInput.value.trim();
+    var initials = initialsInput.value.trim();    
 
     if (initials !== "") {
         var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
@@ -210,12 +208,23 @@ function saveHighScore(event) {
         highScores.sort((a,b) => b.score - a.score);
         localStorage.setItem("highScores", JSON.stringify(highScores));
         showHighScores();
+        
     }
 
     var endScreen = document.getElementById("endScreen");
     endScreen.style.display = "none";
     
 }
+
+var initialsInput = document.getElementById("initialsInput");
+
+initialsInput.addEventListener("input", function() {
+  var initials = this.value;
+  if (initials.length > 3) {
+    this.value = initials.slice(0, 3);
+  }
+});
+
 
 function showHighScores() {
     var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
