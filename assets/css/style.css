@@ -64,7 +64,7 @@ ol.scores li:hover {
   cursor: default;
 }
 
-@media screen and (max-width: 278px) {
+@media screen and (max-width: 275px) {
  .clear {
   margin-top: 5px;
 }
