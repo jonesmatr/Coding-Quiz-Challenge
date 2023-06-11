@@ -80,7 +80,7 @@ function showHighScoresScreen() {
 function startTimer() {
     timerInterval = setInterval(function() {
       timeLeft--;
-      timerElement.textContent = "Time: " + formatTime(timeLeft);
+      timerElement.textContent = "" + formatTime(timeLeft);
   
       if (timeLeft <= 0) {
         clearInterval(timerInterval);
