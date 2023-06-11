@@ -11,7 +11,8 @@
     </title>
 </head>
 <body>
-    <header> <!--Change link style for timer so that it's not clickable-->
+  
+    <header> 
        <ul class="nav nav-fill">
         <li class="nav-item">
           <a class="nav-link active" id="viewHighScoresLink" aria-current="page" href="#">View High Scores</a>
@@ -21,28 +22,30 @@
         </li>                
       </ul>
     </header>
+
     <section class="min-vh-100 d-flex align-items-center"> 
            
         <div class="row w-100 justify-content-center card text-center">
+
             <div class="col-12 col-md-6">
               <h1 class="card-title">Coding Quiz Challenge</h1>
               <p class="card-text">Try to answer the following code-related question within the time limit. Keep in 
                 mind that incorrect answers will penalize your score/time by ten seconds!</p>
               <a href="#" class="btn btn-primary" id="startButton">Start Quiz</a>
 
-              <div id="questionContainer">
-                <h2 id="question"></h2>
+            <div id="questionContainer">
+              <h2 id="question"></h2>
                 </div class="list-group d-flex justify-content-center">
                 <ol class="list-group list-group-numbered text-center pt-3 col-6 mx-auto answers" id="choices" style="display: none;">
-                    <li class="list-group-item list-group-item-action list-group-item-active"></li>
-                    <li class="list-group-item list-group-item-action list-group-item-active"></li>
-                    <li class="list-group-item list-group-item-action list-group-item-active"></li>
-                    <li class="list-group-item list-group-item-action list-group-item-active"></li>
-                  </ol>
-                  <p id="result"></p>
-              </div>
+                  <li class="list-group-item list-group-item-action list-group-item-active"></li>
+                  <li class="list-group-item list-group-item-action list-group-item-active"></li>
+                  <li class="list-group-item list-group-item-action list-group-item-active"></li>
+                  <li class="list-group-item list-group-item-action list-group-item-active"></li>
+                </ol>
+                <p id="result"></p>
+            </div>
           </div>
-          <!--Figure out how to stack these screens and make this one hide after you click submit-->
+
           <div id="endScreen" style="display: none;" class="row w-100 justify-content-center card text-center">
             <h2>Game Over!</h2>
             <p id="score"></p>
@@ -51,25 +54,24 @@
               <input type="text" id="initialsInput" required>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-          </div>
-          
-          <!--Make it so this is the only screen visible after they submit their initials-->
-                    
-            <div id="highScoresScreen" style="display: none;" class="row w-100 justify-content-center text-center">
-              <div class="col-12 col-md-6 text-center">
-                <h2>High Scores</h2>
-                <ol id="highScoresList" class="scores list-group text-center pt-3"></ol>
-                <button id="goBackButton" class="btn btn-primary pt-1">Go Back</button>
-                <button id="clearScoresButton" class="btn btn-primary pt-1">Clear High Scores</button>
-              </div>
+          </div>      
+                              
+          <div id="highScoresScreen" style="display: none;" class="row w-100 justify-content-center text-center">
+            <div class="col-12 col-md-6 text-center">
+              <h2>High Scores</h2>
+              <ol id="highScoresList" class="scores list-group text-center pt-3"></ol>
+              <button id="goBackButton" class="btn btn-primary pt-1">Go Back</button>
+              <button id="clearScoresButton" class="btn btn-primary pt-1">Clear High Scores</button>
             </div>
-        
-        </div>   
+          </div>
+
+        </div>
+
     </section>
 
-    
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="./assets/js/script.js"></script>
+
 </html>

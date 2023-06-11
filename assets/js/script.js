@@ -1,3 +1,4 @@
+// An array of objects, where each object represents a question and its related information
 var questions = [
     {
       question: "What is the correct way to declare a variable in JavaScript?",
@@ -28,6 +29,7 @@ var questions = [
 
 var currentQuestion = 0;
 
+//Create variables for all elements that will be manipulated
 var startButton = document.getElementById("startButton");
 var questionContainer = document.getElementById("questionContainer");
 var viewHighScoresLink = document.getElementById("viewHighScoresLink");
@@ -38,14 +40,16 @@ var nextButton = document.getElementById("nextButton");
 var cardTitle = document.querySelector(".card-title");
 var cardText = document.querySelector(".card-text");
 var timerElement = document.getElementById("timer");
-var timeLeft = 60;
+var timeLeft = 120;
 var timerInterval;
 
+//Create function to disable view high scores link after game starts
 function disableViewHighScoresLink() {
   viewHighScoresLink.removeEventListener("click", showHighScoresScreen);
   viewHighScoresLink.style.pointerEvents = "none";
 }
 
+//Starts the game when the start button is clicked
 function startGame() {
   startButton.style.display = "none";
   cardTitle.style.display = "none";
@@ -58,8 +62,10 @@ function startGame() {
   
 }
 
+//Add event listener to start button
 startButton.addEventListener("click", startGame);
 
+//Add event listener to view high scores link
 function showHighScoresScreen() {
   event.preventDefault();
   questionContainer.style.display = "none";
@@ -69,8 +75,8 @@ function showHighScoresScreen() {
   highScoresScreen.style.display = "block";
   showHighScores();
 }
-//Add function for when the user clicks an answer. Display correct or incorrect, then move to next question - might need to add delay.
 
+//Timer function that counts down from 120 seconds
 function startTimer() {
     timerInterval = setInterval(function() {
       timeLeft--;
@@ -83,6 +89,7 @@ function startTimer() {
     }, 1000);
   }
   
+  // Formats the time in MM:SS format
   function formatTime(seconds) {
     var minutes = Math.floor(seconds / 60);
     var remainingSeconds = seconds % 60;
@@ -93,6 +100,7 @@ function startTimer() {
     return formattedMinutes + ":" + formattedSeconds;
   }
 
+//Function to load the first question
 function loadQuestion() {
   var question = questions[currentQuestion];
 
@@ -119,8 +127,10 @@ function loadQuestion() {
   resultElement.textContent = ""; 
 }
 
+//Sets the initial score to 0
 var score = 0;
 
+//Function to check if the selected answer is correct
 function checkAnswer(event) {
   var selectedChoice = event.target;
   var question = questions[currentQuestion];
@@ -165,6 +175,7 @@ function checkAnswer(event) {
   }, 2000);
 }
 
+//Function to load the next question
 function loadNextQuestion() {
   currentQuestion++;
 
@@ -175,6 +186,7 @@ function loadNextQuestion() {
   }
 }
 
+//Function to end the game when all questions have been answered or the timer reaches 0
 function endGame() {
   questionContainer.style.display = "none";
   // choices.style.display = "none";
@@ -196,6 +208,7 @@ clearInterval(timerInterval);
 
 }
 
+//Function to save the high score to local storage 
 function saveHighScore(event) {
     event.preventDefault();
 
@@ -216,6 +229,7 @@ function saveHighScore(event) {
     
 }
 
+//Limits the initials input to 3 characters
 var initialsInput = document.getElementById("initialsInput");
 
 initialsInput.addEventListener("input", function() {
@@ -225,7 +239,7 @@ initialsInput.addEventListener("input", function() {
   }
 });
 
-
+//Function to show the high scores screen and display the high scores from local storage and sort them in descending order
 function showHighScores() {
     var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
@@ -253,6 +267,7 @@ function showHighScores() {
 
 }
 
+//Function to clear the high scores from local storage when View High Scores is clicked
 var viewHighScoresLink = document.getElementById("viewHighScoresLink");
 viewHighScoresLink.addEventListener("click", showHighScoresScreen);
 
@@ -273,6 +288,7 @@ function showHighScoresScreen(event) {
   showHighScores();
 }
 
+//Function to go back to the start screen when Go Back is clicked
 var goBackButton = document.getElementById("goBackButton");
 goBackButton.addEventListener("click", goBack);
 
@@ -283,6 +299,7 @@ function goBack() {
     location.reload();
 }
 
+//Function to clear the high scores from local storage when Clear High Scores is clicked
 function clearHighScores() {
     localStorage.removeItem("highScores");
     var highScoresList = document.getElementById("highScoresList");
