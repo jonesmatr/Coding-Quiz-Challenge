@@ -58,8 +58,7 @@ function startGame() {
   choices.style.display = "block";
   startTimer();
   loadQuestion();
-  disableViewHighScoresLink();
-  
+  disableViewHighScoresLink();  
 }
 
 //Add event listener to start button
@@ -123,7 +122,6 @@ function loadQuestion() {
       this.style.color = "white";
     }
   }
-
   resultElement.textContent = ""; 
 }
 
@@ -205,7 +203,6 @@ var cardDiv = document.querySelector(".card");
 cardDiv.style.display = "none";
 
 clearInterval(timerInterval);
-
 }
 
 //Function to save the high score to local storage 
@@ -225,8 +222,7 @@ function saveHighScore(event) {
     }
 
     var endScreen = document.getElementById("endScreen");
-    endScreen.style.display = "none";
-    
+    endScreen.style.display = "none";    
 }
 
 //Limits the initials input to 3 characters
@@ -263,8 +259,7 @@ function showHighScores() {
 
       listItem.style.backgroundColor = "lightblue";
       listItem.style.color = "white";
-    }      
-
+    }
 }
 
 //Function to clear the high scores from local storage when View High Scores is clicked
