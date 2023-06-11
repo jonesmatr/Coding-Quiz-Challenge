@@ -112,6 +112,9 @@ function loadQuestion() {
     choice.textContent = question.choices[i];
     choice.addEventListener("click", checkAnswer);
     choicesElement.appendChild(choice);
+
+    choice.style.backgroundColor = "lightblue";
+    choice.style.color = "white";
   }
 
   resultElement.textContent = "";
@@ -218,16 +221,27 @@ function showHighScores() {
     var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
     var highScoresScreen = document.getElementById("highScoresScreen");
-    highScoresScreen.style.display = "block";
+    highScoresScreen.style.display = "flex";
 
     var highScoresList = document.getElementById("highScoresList");
     highScoresList.innerHTML = "";
 
+    var orderedList = document.createElement("ol");
+    orderedList.className = "list-group list-group-numbered col-6 mx-auto";
+    highScoresList.appendChild(orderedList);
+
+    highScores.sort((a,b) => b.score - a.score);
+
     for (var i = 0; i < highScores.length; i++) {
-        var listItem = document.createElement("li");
-        listItem.textContent = highScores[i].initials + ": " + highScores[i].score;
-        highScoresList.appendChild(listItem);
-    }
+      var listItem = document.createElement("li");
+      listItem.className = "list-group-item";
+      listItem.textContent = highScores[i].initials + ": " + highScores[i].score;
+      orderedList.appendChild(listItem);
+
+      listItem.style.backgroundColor = "lightblue";
+      listItem.style.color = "white";
+    }      
+
 }
 
 var viewHighScoresLink = document.getElementById("viewHighScoresLink");

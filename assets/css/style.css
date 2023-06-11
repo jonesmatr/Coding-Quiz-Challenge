@@ -1,9 +1,3 @@
-
-/*Add styling to the View High Score and timer so they are in the corners*/
-/*Add styling to <div> so that it is centered on the screen. The button should transform based on hover, focus, and click*/
-/* Path: assets\css\style.css */
-
-/*Remove border around card body in intro section*/
 .card {
     border: none;
     flex-direction: row;
@@ -30,4 +24,33 @@ li:hover {
     display: none;    
 }
 
+.element {
+  width: 300px;
+  margin: 0 auto;
+}
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.timer {
+  text-decoration: none;
+  color: #000;
+}
+
+.timer:hover {
+  cursor: default;
+  color: #000;
+}
+
+.viewHighScoresLink {
+  color: lightblue;
+}
+
+.btn:hover{
+  color: #fff;
+  background-color: #00ff4c;
+  border-color: #00ff4c;
+}
