@@ -4,7 +4,7 @@ This is a coding quiz challenge where you need to answer code-related questions 
 
 The site can be accessed [here](https://jonesmatr.github.io/Coding-Quiz-Challenge/).
 
-![Coding Quiz Challenge](.assets/images/Website-Screenshot.jpg)
+![Coding Quiz Challenge](./assets/images/Website-Screenshot.jpg)
 
 ## Table of Contents
 - [Instructions](#instructions)
