@@ -11,7 +11,7 @@ var questions = [
       answer: 0
     },
     {
-      question: "What is the output of the following code: console.log(2 + '2');",
+      question: "What is the output of the following code: console.log(2 + '2')?",
       choices: ["4", "22", "TypeError", "NaN"],
       answer: 1
     },
