@@ -38,6 +38,7 @@ var cardTitle = document.querySelector(".card-title");
 var cardText = document.querySelector(".card-text");
 var timerElement = document.getElementById("timer");
 var timeLeft = 60;
+var timerInterval;
 
 
 
@@ -61,7 +62,7 @@ function startGame() {
 //Add function for when the user clicks an answer. Display correct or incorrect, then move to next question - might need to add delay.
 
 function startTimer() {
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
       timeLeft--;
       timerElement.textContent = "Time: " + formatTime(timeLeft);
   
@@ -173,13 +174,15 @@ var endScreen = document.getElementById("endScreen");
 endScreen.style.display = "block";
 
 var scoreElement = document.getElementById("score");
-scoreElement.textContent = "Your score: " + score;
+scoreElement.textContent = "Your final score is: " + score;
 
 var initialsForm = document.getElementById("initialsForm");
 initialsForm.addEventListener("submit", saveHighScore);
 
 var cardDiv = document.querySelector(".card");
 cardDiv.style.display = "none";
+
+clearInterval(timerInterval);
 
 }
 
@@ -196,6 +199,10 @@ function saveHighScore(event) {
         localStorage.setItem("highScores", JSON.stringify(highScores));
         showHighScores();
     }
+
+    var endScreen = document.getElementById("endScreen");
+    endScreen.style.display = "none";
+    
 }
 
 function showHighScores() {
