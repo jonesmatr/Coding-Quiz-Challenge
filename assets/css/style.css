@@ -63,3 +63,7 @@ ol.scores li::before {
 ol.scores li:hover {
   cursor: default;
 }
+
+.submit {
+  margin-top: 5px;
+}
