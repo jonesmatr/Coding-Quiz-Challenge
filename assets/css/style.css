@@ -1,6 +1,7 @@
 .card {
     border: none;
     flex-direction: row;
+    a
 }
 
 ol {
@@ -63,3 +64,4 @@ ol.scores li::before {
 ol.scores li:hover {
   cursor: default;
 }
+
